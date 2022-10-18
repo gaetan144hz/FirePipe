@@ -35,6 +35,15 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""c8121bfd-aeef-4762-b62d-7051387e78df"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -147,6 +156,17 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79155ed0-b04b-436e-b802-cd93c166815b"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -156,6 +176,7 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
         // croasshair
         m_croasshair = asset.FindActionMap("croasshair", throwIfNotFound: true);
         m_croasshair_Move = m_croasshair.FindAction("Move", throwIfNotFound: true);
+        m_croasshair_Shoot = m_croasshair.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -216,11 +237,13 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_croasshair;
     private ICroasshairActions m_CroasshairActionsCallbackInterface;
     private readonly InputAction m_croasshair_Move;
+    private readonly InputAction m_croasshair_Shoot;
     public struct CroasshairActions
     {
         private @Controllers m_Wrapper;
         public CroasshairActions(@Controllers wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_croasshair_Move;
+        public InputAction @Shoot => m_Wrapper.m_croasshair_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_croasshair; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -233,6 +256,9 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnMove;
+                @Shoot.started -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnShoot;
             }
             m_Wrapper.m_CroasshairActionsCallbackInterface = instance;
             if (instance != null)
@@ -240,6 +266,9 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
         }
     }
@@ -247,5 +276,6 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
     public interface ICroasshairActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }

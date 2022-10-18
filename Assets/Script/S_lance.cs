@@ -7,25 +7,28 @@ using UnityEngine.InputSystem;
 public class S_lance : MonoBehaviour
 {
     [SerializeField] SpriteRenderer spriteRenderer;
+    
+    [SerializeField] private float currenSpeed;
     private Vector2 movement;
     private Rigidbody2D rb;
-    [SerializeField] private float currenSpeed;
-    //private Controllers playerInput;
-
+    
+    private Controllers playerInput;
+    
+    public GameObject eau;
+    public Transform firePoint;
 
     private void Awake()
     {
         GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        //playerInput = new Controllers();
+        playerInput = new Controllers();
     }
 
     void Start()
     {
-        
+
     }
-
-
+    
     void Update()
     {
 
@@ -49,13 +52,24 @@ public class S_lance : MonoBehaviour
         spriteRenderer.color = Color.red;
     }
 
-    public void OnMove(InputValue value)
+    public void Move(InputAction.CallbackContext ctx)
     {
-        movement = value.Get<Vector2>();
-        rb.velocity = movement * currenSpeed;
+        if (ctx.performed)
+        {
+            Vector2 movement = playerInput.croasshair.Move.ReadValue<Vector2>();
+            //movement = value.Get<Vector2>();
+            rb.velocity = movement * currenSpeed;
+        }
+    }
+
+    public void Shoot(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            Instantiate(eau, firePoint.position, firePoint.rotation);
+        }
     }
     
-    /*
     private void OnEnable()
     {
         playerInput.Enable();
@@ -65,5 +79,5 @@ public class S_lance : MonoBehaviour
     {
         playerInput.Disable();
     }
-    */
+    
 }
