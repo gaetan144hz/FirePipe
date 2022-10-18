@@ -3,12 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - homme_feu
+  - homme
+  - crosshair
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - homme_feu
   - Water
   - UI
   - 
