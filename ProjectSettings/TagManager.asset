@@ -9,6 +9,7 @@ TagManager:
   - Saved
   - Lance
   - Water
+  - Zone
   layers:
   - Default
   - TransparentFX
