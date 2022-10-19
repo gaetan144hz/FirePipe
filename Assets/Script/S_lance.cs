@@ -3,19 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class S_lance : MonoBehaviour
 {
     [SerializeField] SpriteRenderer spriteRenderer;
     
     [SerializeField] private float currenSpeed;
-    private Vector2 movement;
+    public bool canShoot;
     private Rigidbody2D rb;
     
     private Controllers playerInput;
     
     public GameObject eau;
     public Transform firePoint;
+
+    public Slider slider;
 
     private void Awake()
     {
@@ -26,13 +29,22 @@ public class S_lance : MonoBehaviour
 
     void Start()
     {
-
+        canShoot = true;
     }
     
     void Update()
     {
-
+        if (slider.value <= 0)
+        {
+            canShoot = false;
+        }
+        else if (slider.value >= 0)
+        {
+            canShoot = true;
+        }
     }
+
+    #region Trigger
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -52,24 +64,50 @@ public class S_lance : MonoBehaviour
         spriteRenderer.color = Color.red;
     }
 
-    public void Move(InputAction.CallbackContext ctx)
+    #endregion
+    
+
+    public void Movement(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
-            Vector2 movement = playerInput.croasshair.Move.ReadValue<Vector2>();
-            //movement = value.Get<Vector2>();
-            rb.velocity = movement * currenSpeed;
+            Vector2 moveInput = playerInput.croasshair.Move.ReadValue<Vector2>();
+            rb.velocity = moveInput * currenSpeed;
+        }
+    }
+
+    public void Refill(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            slider.value += 1;
         }
     }
 
     public void Shoot(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
+        if (ctx.started && canShoot == true)
         {
             Instantiate(eau, firePoint.position, firePoint.rotation);
+            slider.value -= 1;
+        }
+
+        if (ctx.canceled)
+        {
+            return;
         }
     }
-    
+
+    public void Mousse(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            Debug.Log("Mousse");
+        }
+    }
+
+    #region PlayerInput
+
     private void OnEnable()
     {
         playerInput.Enable();
@@ -79,5 +117,6 @@ public class S_lance : MonoBehaviour
     {
         playerInput.Disable();
     }
-    
+
+    #endregion
 }

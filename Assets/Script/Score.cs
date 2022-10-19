@@ -19,7 +19,7 @@ public class Score : MonoBehaviour
     }
     public void onScore(int value)
     {
-        score += value;
+        score = value;
         scoreText.text = score.ToString();
     }
 }

@@ -42,6 +42,24 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                     ""id"": ""c8121bfd-aeef-4762-b62d-7051387e78df"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
+                    ""interactions"": ""Hold(duration=1,pressPoint=0.3)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Refill"",
+                    ""type"": ""Button"",
+                    ""id"": ""831dfcba-b49d-4a75-ab67-6b5a2a1bc198"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mousse"",
+                    ""type"": ""Button"",
+                    ""id"": ""7a3872b1-f43c-4d41-86db-47bdaeb90870"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 }
@@ -167,6 +185,28 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""926057fa-9df8-4ba7-b52f-3accf41cc732"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Refill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""385ba85b-2ff2-45f0-95a9-41a0385388b2"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mousse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -177,6 +217,8 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
         m_croasshair = asset.FindActionMap("croasshair", throwIfNotFound: true);
         m_croasshair_Move = m_croasshair.FindAction("Move", throwIfNotFound: true);
         m_croasshair_Shoot = m_croasshair.FindAction("Shoot", throwIfNotFound: true);
+        m_croasshair_Refill = m_croasshair.FindAction("Refill", throwIfNotFound: true);
+        m_croasshair_Mousse = m_croasshair.FindAction("Mousse", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -238,12 +280,16 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
     private ICroasshairActions m_CroasshairActionsCallbackInterface;
     private readonly InputAction m_croasshair_Move;
     private readonly InputAction m_croasshair_Shoot;
+    private readonly InputAction m_croasshair_Refill;
+    private readonly InputAction m_croasshair_Mousse;
     public struct CroasshairActions
     {
         private @Controllers m_Wrapper;
         public CroasshairActions(@Controllers wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_croasshair_Move;
         public InputAction @Shoot => m_Wrapper.m_croasshair_Shoot;
+        public InputAction @Refill => m_Wrapper.m_croasshair_Refill;
+        public InputAction @Mousse => m_Wrapper.m_croasshair_Mousse;
         public InputActionMap Get() { return m_Wrapper.m_croasshair; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -259,6 +305,12 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnShoot;
+                @Refill.started -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnRefill;
+                @Refill.performed -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnRefill;
+                @Refill.canceled -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnRefill;
+                @Mousse.started -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnMousse;
+                @Mousse.performed -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnMousse;
+                @Mousse.canceled -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnMousse;
             }
             m_Wrapper.m_CroasshairActionsCallbackInterface = instance;
             if (instance != null)
@@ -269,6 +321,12 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Refill.started += instance.OnRefill;
+                @Refill.performed += instance.OnRefill;
+                @Refill.canceled += instance.OnRefill;
+                @Mousse.started += instance.OnMousse;
+                @Mousse.performed += instance.OnMousse;
+                @Mousse.canceled += instance.OnMousse;
             }
         }
     }
@@ -277,5 +335,7 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnRefill(InputAction.CallbackContext context);
+        void OnMousse(InputAction.CallbackContext context);
     }
 }

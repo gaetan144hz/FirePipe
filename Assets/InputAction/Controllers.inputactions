@@ -20,6 +20,24 @@
                     "id": "c8121bfd-aeef-4762-b62d-7051387e78df",
                     "expectedControlType": "Button",
                     "processors": "",
+                    "interactions": "Hold(duration=1,pressPoint=0.3)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Refill",
+                    "type": "Button",
+                    "id": "831dfcba-b49d-4a75-ab67-6b5a2a1bc198",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Mousse",
+                    "type": "Button",
+                    "id": "7a3872b1-f43c-4d41-86db-47bdaeb90870",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 }
@@ -143,6 +161,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "926057fa-9df8-4ba7-b52f-3accf41cc732",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Refill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "385ba85b-2ff2-45f0-95a9-41a0385388b2",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mousse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
