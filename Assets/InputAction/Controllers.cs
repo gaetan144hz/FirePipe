@@ -34,7 +34,7 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Shoot"",
@@ -42,7 +42,7 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                     ""id"": ""c8121bfd-aeef-4762-b62d-7051387e78df"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold(duration=1,pressPoint=0.3)"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
