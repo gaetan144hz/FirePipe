@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7370921881188604456}
   - component: {fileID: 7370921880831155005}
   - component: {fileID: 7370921880831155011}
+  - component: {fileID: 1407689666}
   m_Layer: 0
   m_Name: crosshair
   m_TagString: crosshair
@@ -135,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 7370921881188604459}
   currenSpeed: 5
+  fullTanck: 1
+  autoFireRate: 1.522
   canShoot: 0
   eau: {fileID: 5805073362979662563, guid: 02617d6ed8b94574f947ba61a2587445, type: 3}
   firePoint: {fileID: 4441160043831441779}
@@ -205,7 +208,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7370921881188604457}
         m_TargetAssemblyTypeName: S_lance, Assembly-CSharp
-        m_MethodName: Movement
+        m_MethodName: Move
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -253,7 +256,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7370921881188604457}
         m_TargetAssemblyTypeName: S_lance, Assembly-CSharp
-        m_MethodName: Shoot
+        m_MethodName: Mousse
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -284,3 +287,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
   score: 1
+--- !u!114 &1407689666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7370921881188604468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7568238f526da324ebd75230fa43dc73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

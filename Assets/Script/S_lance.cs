@@ -3,13 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class S_lance : MonoBehaviour
 {
     [SerializeField] SpriteRenderer spriteRenderer;
     
+    private Vector2 moveInput;
     [SerializeField] private float currenSpeed;
+    public bool fullTanck;
+    public float autoFireRate;
     public bool canShoot;
     private Rigidbody2D rb;
     
@@ -29,6 +33,7 @@ public class S_lance : MonoBehaviour
 
     void Start()
     {
+        fullTanck = true;
         canShoot = true;
     }
     
@@ -36,11 +41,11 @@ public class S_lance : MonoBehaviour
     {
         if (slider.value <= 0)
         {
-            canShoot = false;
+            fullTanck = false;
         }
         else if (slider.value >= 0)
         {
-            canShoot = true;
+            fullTanck = true;
         }
     }
 
@@ -67,11 +72,11 @@ public class S_lance : MonoBehaviour
     #endregion
     
 
-    public void Movement(InputAction.CallbackContext ctx)
+    public void Move(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
-            Vector2 moveInput = playerInput.croasshair.Move.ReadValue<Vector2>();
+            moveInput = playerInput.croasshair.Move.ReadValue<Vector2>();
             rb.velocity = moveInput * currenSpeed;
         }
     }
@@ -84,19 +89,35 @@ public class S_lance : MonoBehaviour
         }
     }
 
+    #region Shooting
+
     public void Shoot(InputAction.CallbackContext ctx)
     {
-        if (ctx.started && canShoot == true)
+        if (ctx.performed && fullTanck == true)
         {
-            Instantiate(eau, firePoint.position, firePoint.rotation);
-            slider.value -= 1;
+            canShoot = true;
+            StartCoroutine(autoShoot());
+            return;
         }
-
-        if (ctx.canceled)
+        else
         {
+            canShoot = false;
             return;
         }
     }
+    
+    public IEnumerator autoShoot()
+    {
+        while (canShoot == true)
+        {
+            Instantiate(eau, firePoint.position, firePoint.rotation);
+            slider.value -= 1;
+            yield return new WaitForSeconds(autoFireRate);
+        }
+    }
+
+    #endregion
+    
 
     public void Mousse(InputAction.CallbackContext ctx)
     {
@@ -119,4 +140,5 @@ public class S_lance : MonoBehaviour
     }
 
     #endregion
+
 }
