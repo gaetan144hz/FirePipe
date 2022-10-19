@@ -8,8 +8,7 @@ public class SC_LookAt : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(target,Vector3.back);
-        transform.LookAt(target, Vector3.left);
-        //transform.LookAt(target, Vector3.down);
+        transform.LookAt(target, Vector3.forward);
+        transform.LookAt(target,Vector3.up);
     }
 }
