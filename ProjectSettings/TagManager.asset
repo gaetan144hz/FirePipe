@@ -6,15 +6,20 @@ TagManager:
   tags:
   - homme_feu
   - homme
-  - crosshair
+  - Saved
+  - Lance
+  - Water
+  - Zone
+  - Chat
+  - Watered
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - homme_feu
+  - Zone
   - Water
   - UI
-  - 
+  - Lance
   - 
   - 
   - 
