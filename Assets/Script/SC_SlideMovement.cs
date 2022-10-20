@@ -32,10 +32,12 @@ public class SC_SlideMovement : MonoBehaviour
 
         if (moveRight)
         {
+            this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
             transform.position = new Vector2(transform.position.x + currentSpeedMovement * Time.deltaTime, transform.position.y);
         }
         else
         {
+            this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
             transform.position = new Vector2(transform.position.x - currentSpeedMovement * Time.deltaTime, transform.position.y);
         }
     }

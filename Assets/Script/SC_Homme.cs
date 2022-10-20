@@ -9,13 +9,13 @@ public class SC_Homme : MonoBehaviour
     public int index;
     public bool watered;
     public GameObject bgFire;
+    public Animation anim;
     
     [Header("Script")]
     private SC_Score score;
     private SC_Health health;
     public SC_Spawn spawn;
     
-
     [Header("Timer")]
     public float currenTime = 0f;
     public float startingTime = 10f;
@@ -57,6 +57,7 @@ public class SC_Homme : MonoBehaviour
 
         if (currenTime >= 15f)
         {
+            this.gameObject.GetComponent<Animation>().Stop();
             bgFire.SetActive(false);
             this.gameObject.tag = newTag;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteRescueMan;

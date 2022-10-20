@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 564866650196251283}
   - component: {fileID: 564866650196251282}
   - component: {fileID: 5567256667818959879}
+  - component: {fileID: 4544579715784379257}
   m_Layer: 0
   m_Name: P_ManInFire
   m_TagString: homme_feu
@@ -150,6 +151,7 @@ MonoBehaviour:
   index: 0
   watered: 0
   bgFire: {fileID: 1296356588635819769}
+  anim: {fileID: 4544579715784379257}
   spawn: {fileID: 0}
   currenTime: 0
   startingTime: 10
@@ -186,6 +188,21 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   spritePlayer: {fileID: 564866650196251293}
   newTag: Saved
+--- !u!111 &4544579715784379257
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564866650196251294}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: fa09acd2fc0dea646acb958ae71a85b2, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1296356588635819769
 GameObject:
   m_ObjectHideFlags: 0

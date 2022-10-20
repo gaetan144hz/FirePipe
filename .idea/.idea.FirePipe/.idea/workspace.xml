@@ -11,7 +11,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/SC_Cat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/SC_LookAt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/SC_SlideMovement.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -75,7 +74,7 @@
       <workItem from="1666094392287" duration="16647000" />
       <workItem from="1666164383154" duration="21111000" />
       <workItem from="1666202307208" duration="11305000" />
-      <workItem from="1666254260502" duration="6563000" />
+      <workItem from="1666254260502" duration="14522000" />
     </task>
     <servers />
   </component>

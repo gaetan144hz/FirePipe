@@ -286,8 +286,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  catText: {fileID: 0}
   gameOverScoreText: {fileID: 0}
+  gameOverCatText: {fileID: 0}
   score: 0
+  cat: 0
 --- !u!114 &1407689666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,5 +313,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   gameOverUI: {fileID: 0}
-  spriteHead: {fileID: 21300000, guid: e235d8074879ce44e94cec2458fd2c54, type: 3}
-  spriteBurnHead: {fileID: 21300000, guid: 50908555034070949bb287da0501341a, type: 3}
+  spriteHead: {fileID: 21300000, guid: 3fbf95183546efa4c94abfc172506a97, type: 3}
+  spriteBurnHead: {fileID: 21300000, guid: c5cbfb9d635c3744f835f7efb2a54c2a, type: 3}
