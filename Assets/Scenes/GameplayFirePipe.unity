@@ -452,7 +452,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Replay
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 686e74e021c49dc4fbf4277de8f7f712, type: 2}
   m_sharedMaterial: {fileID: 7110525876749760860, guid: 6252874b1b998e444a1287ef2e1dbdb0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -538,6 +538,7 @@ GameObject:
   - component: {fileID: 312346548}
   - component: {fileID: 312346550}
   - component: {fileID: 312346549}
+  - component: {fileID: 312346551}
   m_Layer: 0
   m_Name: jet
   m_TagString: Untagged
@@ -552,14 +553,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312346547}
-  m_LocalRotation: {x: -0.0012268722, y: -0.0012268126, z: -0.70710576, w: 0.70710576}
-  m_LocalPosition: {x: 0.03999996, y: -0.5248646, z: 1.4798523}
+  m_LocalRotation: {x: -0.62846875, y: 0.29796737, z: 0.28654546, w: 0.6588886}
+  m_LocalPosition: {x: 0.16, y: -2.99, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 733884231}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: -87.367, y: 0, z: 0}
 --- !u!199 &312346549
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5339,6 +5340,25 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1183024399 &312346551
+LookAtConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312346547}
+  m_Enabled: 1
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 90, z: 90}
+  m_Roll: -3.84
+  m_WorldUpObject: {fileID: 0}
+  m_UseUpObject: 0
+  m_IsContraintActive: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 547897799}
+    weight: 1
 --- !u!114 &358727737 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5177046578427453984, guid: fe03a9f9ea4ff874fb04431bebc30c9e, type: 3}
@@ -5441,7 +5461,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAME OVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 686e74e021c49dc4fbf4277de8f7f712, type: 2}
   m_sharedMaterial: {fileID: 7110525876749760860, guid: 6252874b1b998e444a1287ef2e1dbdb0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6100,8 +6120,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 312346548}
+  m_Children: []
   m_Father: {fileID: 1611969313}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7312,7 +7331,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Vous avez sauve 0 personnes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 686e74e021c49dc4fbf4277de8f7f712, type: 2}
   m_sharedMaterial: {fileID: 7110525876749760860, guid: 6252874b1b998e444a1287ef2e1dbdb0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8240,7 +8259,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611969312}
-  m_LocalRotation: {x: -0.49913174, y: 0.5008668, z: 0.49913174, w: 0.5008668}
+  m_LocalRotation: {x: -0.4991317, y: 0.5008668, z: 0.49913174, w: 0.50086683}
   m_LocalPosition: {x: 0.19, y: -4.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8248,7 +8267,7 @@ Transform:
   - {fileID: 733884231}
   m_Father: {fileID: 0}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: -89.801, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1183024399 &1611969314
 LookAtConstraint:
   m_ObjectHideFlags: 0
@@ -8308,7 +8327,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: en 0min 0sec
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 686e74e021c49dc4fbf4277de8f7f712, type: 2}
   m_sharedMaterial: {fileID: 7110525876749760860, guid: 6252874b1b998e444a1287ef2e1dbdb0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8463,7 +8482,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Vous avez sauve 0 personnes
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 686e74e021c49dc4fbf4277de8f7f712, type: 2}
   m_sharedMaterial: {fileID: 7110525876749760860, guid: 6252874b1b998e444a1287ef2e1dbdb0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8825,7 +8844,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAME OVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 686e74e021c49dc4fbf4277de8f7f712, type: 2}
   m_sharedMaterial: {fileID: 7110525876749760860, guid: 6252874b1b998e444a1287ef2e1dbdb0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
