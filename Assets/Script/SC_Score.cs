@@ -18,7 +18,7 @@ public class SC_Score : MonoBehaviour
     {
         
     }
-    public void onScore(int value)
+    public void AddScore(int value)
     {
         score += value;
         scoreText.text = score.ToString();
@@ -27,5 +27,11 @@ public class SC_Score : MonoBehaviour
         {
             gameOverScoreText.text = $"T'abuse mon reuf ta sauve {score} personnes t nul";
         }
+    }
+
+    public void RemoveScore(int value)
+    {
+        score -= value;
+        Debug.Log(value);
     }
 }

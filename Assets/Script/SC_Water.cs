@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class SC_Water : MonoBehaviour
 {
     public SC_Homme homme;
+    public SC_Score score;
     [SerializeField] float timeToDestroy;
 
     private void Start()

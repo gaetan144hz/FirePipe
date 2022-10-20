@@ -23,7 +23,7 @@ public class SC_Lance : MonoBehaviour
     public Transform firePoint;
 
     public Slider slider;
-
+    
     private void Awake()
     {
         GetComponent<SpriteRenderer>();
@@ -131,6 +131,7 @@ public class SC_Lance : MonoBehaviour
 
     private void OnEnable()
     {
+        Time.timeScale = 1f;
         playerInput.Enable();
     }
 

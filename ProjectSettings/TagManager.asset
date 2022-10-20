@@ -10,6 +10,7 @@ TagManager:
   - Lance
   - Water
   - Zone
+  - Chat
   layers:
   - Default
   - TransparentFX

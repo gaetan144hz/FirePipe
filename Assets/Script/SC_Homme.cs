@@ -82,7 +82,7 @@ public class SC_Homme : MonoBehaviour
         if (this.gameObject.CompareTag("Saved"))
         {
             score = FindObjectOfType<SC_Score>();
-            score.onScore(1);
+            score.AddScore(1);
         }
 
         if (this.gameObject.CompareTag("homme_feu"))

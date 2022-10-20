@@ -8,13 +8,14 @@ public class SC_Spawn : MonoBehaviour
     [Header("Spawn")]
     public Transform[] spawnPoint;
     public GameObject[] man;
+    public SC_Timer time;
     public static bool spawnAllowedl;
     
     private int randomSpawnPoint, randomMan;
     
     [Header("Rate")]
     [SerializeField] private float repeatRate;
-    [SerializeField] private float time;
+    [SerializeField] private float decreaseRepeatRate;
 
     private List<bool> listSpawnPoint = new List<bool>();
 
@@ -25,12 +26,15 @@ public class SC_Spawn : MonoBehaviour
             listSpawnPoint.Add(true);
         }
         
-        InvokeRepeating("Spawn01",1 ,repeatRate);
+        InvokeRepeating("Spawn01",3 ,repeatRate);
     }
 
     void Update()
     {
-        
+        if (time.sec >= 30)
+        {
+            repeatRate -= decreaseRepeatRate;
+        }
     }
 
     public void Spawn01()
