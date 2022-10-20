@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 7370921881188604459}
+  fxJet: {fileID: 0}
   currenSpeed: 5
   fullTanck: 1
   autoFireRate: 0.2

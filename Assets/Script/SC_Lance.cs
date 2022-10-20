@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class SC_Lance : MonoBehaviour
 {
     [SerializeField] SpriteRenderer spriteRenderer;
+    public GameObject fxJet;
     
     private Vector2 moveInput;
     [SerializeField] private float currenSpeed;
@@ -33,6 +34,7 @@ public class SC_Lance : MonoBehaviour
 
     void Start()
     {
+        fxJet.SetActive(false);
         fullTanck = true;
         canShoot = true;
     }
@@ -95,12 +97,14 @@ public class SC_Lance : MonoBehaviour
     {
         if (ctx.performed && fullTanck == true)
         {
+            fxJet.SetActive(enabled);
             canShoot = true;
             StartCoroutine(autoShoot());
             return;
         }
         else
         {
+            fxJet.SetActive(false);
             canShoot = false;
             return;
         }
