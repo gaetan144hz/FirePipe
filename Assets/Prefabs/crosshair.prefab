@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 7370921881188604459}
   fxJet: {fileID: 0}
+  sortiePuissance: 0.1
   currenSpeed: 5
   fullTanck: 1
   autoFireRate: 0.2
@@ -305,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  timer: {fileID: 0}
   hearth:
   - {fileID: 0}
   - {fileID: 0}

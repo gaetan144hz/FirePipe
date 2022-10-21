@@ -12,6 +12,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Script/SC_LookAt.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/SC_Quit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/SC_SlideMovement.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -75,6 +76,7 @@
       <workItem from="1666164383154" duration="21111000" />
       <workItem from="1666202307208" duration="11305000" />
       <workItem from="1666254260502" duration="15729000" />
+      <workItem from="1666337028145" duration="7830000" />
     </task>
     <servers />
   </component>

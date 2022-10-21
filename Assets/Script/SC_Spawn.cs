@@ -25,18 +25,34 @@ public class SC_Spawn : MonoBehaviour
         {
             listSpawnPoint.Add(true);
         }
-        
-        InvokeRepeating("Spawn01",3 ,repeatRate);
+
+        StartCoroutine(startSpawn());
+        //InvokeRepeating("Spawn01",3 ,repeatRate);
     }
 
     void Update()
     {
-        if (time.sec >= 30)
+        if (time.sec >= 60)
         {
             repeatRate -= decreaseRepeatRate;
         }
+
+        if (repeatRate <= 1f)
+        {
+            repeatRate = 1f;
+        }
     }
 
+    IEnumerator startSpawn()
+    {
+        yield return new WaitForSeconds(3f);
+        while (true)
+        {
+            Spawn01();
+            yield return new WaitForSeconds(repeatRate);
+        }
+    }
+    
     public void Spawn01()
     {
         List<int> tmpListSP = new List<int>();

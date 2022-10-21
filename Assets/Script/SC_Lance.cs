@@ -10,6 +10,7 @@ public class SC_Lance : MonoBehaviour
 {
     [SerializeField] SpriteRenderer spriteRenderer;
     public GameObject fxJet;
+    public float sortiePuissance;
     
     private Vector2 moveInput;
     [SerializeField] private float currenSpeed;
@@ -34,6 +35,7 @@ public class SC_Lance : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
         fxJet.SetActive(false);
         fullTanck = true;
         canShoot = true;
@@ -87,7 +89,7 @@ public class SC_Lance : MonoBehaviour
     {
         if (ctx.performed)
         {
-            slider.value += 1;
+            slider.value += 1f;
         }
     }
 
@@ -115,7 +117,7 @@ public class SC_Lance : MonoBehaviour
         while (canShoot == true)
         {
             Instantiate(eau, firePoint.position, firePoint.rotation);
-            slider.value -= 1;
+            slider.value -= sortiePuissance;
             yield return new WaitForSeconds(autoFireRate);
         }
     }

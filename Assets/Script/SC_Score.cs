@@ -20,13 +20,20 @@ public class SC_Score : MonoBehaviour
 
     void Update()
     {
-        
+        if (score == 0)
+        {
+            gameOverScoreText.text = $"T'abuse mon reuf ta sauvé personnes t nul";
+        }
+        if (cat == 0)
+        {
+            gameOverCatText.text = $"Vous n'avez pas tué de chat";
+        }
     }
     public void AddScore(int value)
     {
         score += value;
         scoreText.text = $"Sauve {score}";
-        gameOverScoreText.text = $"Vous avez sauve {score} personnes BRAVO !";
+        gameOverScoreText.text = $"Vous avez sauvé(s) {score} personnes BRAVO !";
         if (score == 0)
         {
             gameOverScoreText.text = $"T'abuse mon reuf ta sauve {score} personnes t nul";
@@ -38,18 +45,15 @@ public class SC_Score : MonoBehaviour
         if (score >= 1)
         {
             score -= value;
-            scoreText.text = $"Sauve {score}";
+            scoreText.text = $"Sauve: {score}";
         }
-        else
-        {
-            return;
-        }
+        gameOverScoreText.text = $"Vous avez sauvé(s) {score} personne(s) BRAVO !";
     }
 
     public void AddCat(int value)
     {
         cat += value;
-        catText.text = $"Chat {cat}";
-        gameOverCatText.text = $"Vous avez tue {cat} chat...";
+        catText.text = $"Chat tué: {cat}";
+        gameOverCatText.text = $"Vous avez tué(s) {cat} chat(s)... ..";
     }
 }

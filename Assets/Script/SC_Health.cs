@@ -6,8 +6,9 @@ using UnityEngine;
 public class SC_Health : MonoBehaviour
 {
     public int health;
-    
-    [Header("GameObject")]
+
+    [Header("GameObject")] 
+    public SC_Timer timer;
     public GameObject[] hearth;
     public GameObject[] headLight;
     public GameObject gameOverUI;
@@ -18,7 +19,7 @@ public class SC_Health : MonoBehaviour
 
     void Start()
     {
-        health = 3;
+        health = 1;
         gameOverUI.SetActive(false);
         
         foreach (var light in headLight)
@@ -57,9 +58,12 @@ public class SC_Health : MonoBehaviour
             {
                 light.SetActive(false);
             }
-            
+
+            Cursor.visible = true;
             gameOverUI.SetActive(true);
-            Time.timeScale = 0f;
+            Destroy(this.gameObject.GetComponent<SC_Lance>());
+            timer = FindObjectOfType<SC_Timer>();
+            Destroy(timer.GetComponent<SC_Timer>());
         }
     }
 
