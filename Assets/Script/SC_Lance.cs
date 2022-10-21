@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -9,6 +10,8 @@ using UnityEngine.UI;
 public class SC_Lance : MonoBehaviour
 {
     [SerializeField] SpriteRenderer spriteRenderer;
+    public GameObject fxJet;
+    public float sortiePuissance;
     
     private Vector2 moveInput;
     [SerializeField] private float currenSpeed;
@@ -33,6 +36,8 @@ public class SC_Lance : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
+        fxJet.SetActive(false);
         fullTanck = true;
         canShoot = true;
     }
@@ -76,7 +81,7 @@ public class SC_Lance : MonoBehaviour
     {
         if (ctx.performed)
         {
-            moveInput = playerInput.croasshair.Move.ReadValue<Vector2>();
+            moveInput = playerInput.lance.Move.ReadValue<Vector2>();
             rb.velocity = moveInput * currenSpeed;
         }
     }
@@ -85,7 +90,7 @@ public class SC_Lance : MonoBehaviour
     {
         if (ctx.performed)
         {
-            slider.value += 1;
+            slider.value += 1f;
         }
     }
 
@@ -95,12 +100,14 @@ public class SC_Lance : MonoBehaviour
     {
         if (ctx.performed && fullTanck == true)
         {
+            fxJet.SetActive(enabled);
             canShoot = true;
             StartCoroutine(autoShoot());
             return;
         }
         else
         {
+            fxJet.SetActive(false);
             canShoot = false;
             return;
         }
@@ -111,13 +118,21 @@ public class SC_Lance : MonoBehaviour
         while (canShoot == true)
         {
             Instantiate(eau, firePoint.position, firePoint.rotation);
-            slider.value -= 1;
+            slider.value -= sortiePuissance;
             yield return new WaitForSeconds(autoFireRate);
         }
     }
 
     #endregion
-    
+
+    public void Quit(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            Application.Quit();
+            Debug.Log("Jeu Quitté");
+        }
+    }
 
     public void Mousse(InputAction.CallbackContext ctx)
     {
@@ -141,5 +156,4 @@ public class SC_Lance : MonoBehaviour
     }
 
     #endregion
-
 }

@@ -36,12 +36,13 @@ public class SC_Cat : MonoBehaviour
 
     private void OnDestroy()
     {
+        spawn.ResetSpawnPoint(index);
+        
         if (this.gameObject.CompareTag("Watered"))
         {
             score = FindObjectOfType<SC_Score>();
             score.RemoveScore(1);
             score.AddCat(1);
-            spawn.ResetSpawnPoint(index);
         }
         else
         {

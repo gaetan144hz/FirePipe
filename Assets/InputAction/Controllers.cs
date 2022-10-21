@@ -24,7 +24,7 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
     ""name"": ""Controllers"",
     ""maps"": [
         {
-            ""name"": ""croasshair"",
+            ""name"": ""lance"",
             ""id"": ""0ea7d399-e064-46a6-8265-584d1dcdb71f"",
             ""actions"": [
                 {
@@ -62,6 +62,15 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AltF4"",
+                    ""type"": ""Button"",
+                    ""id"": ""99cb8ce8-ee53-40fa-be26-aea3e420c741"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -79,7 +88,7 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""03fc4a87-5a1e-4cce-b98e-bdd0ac7d8403"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -90,7 +99,7 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""cd667e7a-e0c0-46e7-9472-8ce47b3ffe48"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -207,18 +216,30 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                     ""action"": ""Mousse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f8f7d46-c17c-43ba-85a4-d56ebc54b27a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AltF4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // croasshair
-        m_croasshair = asset.FindActionMap("croasshair", throwIfNotFound: true);
-        m_croasshair_Move = m_croasshair.FindAction("Move", throwIfNotFound: true);
-        m_croasshair_Shoot = m_croasshair.FindAction("Shoot", throwIfNotFound: true);
-        m_croasshair_Refill = m_croasshair.FindAction("Refill", throwIfNotFound: true);
-        m_croasshair_Mousse = m_croasshair.FindAction("Mousse", throwIfNotFound: true);
+        // lance
+        m_lance = asset.FindActionMap("lance", throwIfNotFound: true);
+        m_lance_Move = m_lance.FindAction("Move", throwIfNotFound: true);
+        m_lance_Shoot = m_lance.FindAction("Shoot", throwIfNotFound: true);
+        m_lance_Refill = m_lance.FindAction("Refill", throwIfNotFound: true);
+        m_lance_Mousse = m_lance.FindAction("Mousse", throwIfNotFound: true);
+        m_lance_AltF4 = m_lance.FindAction("AltF4", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -275,44 +296,49 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // croasshair
-    private readonly InputActionMap m_croasshair;
-    private ICroasshairActions m_CroasshairActionsCallbackInterface;
-    private readonly InputAction m_croasshair_Move;
-    private readonly InputAction m_croasshair_Shoot;
-    private readonly InputAction m_croasshair_Refill;
-    private readonly InputAction m_croasshair_Mousse;
-    public struct CroasshairActions
+    // lance
+    private readonly InputActionMap m_lance;
+    private ILanceActions m_LanceActionsCallbackInterface;
+    private readonly InputAction m_lance_Move;
+    private readonly InputAction m_lance_Shoot;
+    private readonly InputAction m_lance_Refill;
+    private readonly InputAction m_lance_Mousse;
+    private readonly InputAction m_lance_AltF4;
+    public struct LanceActions
     {
         private @Controllers m_Wrapper;
-        public CroasshairActions(@Controllers wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_croasshair_Move;
-        public InputAction @Shoot => m_Wrapper.m_croasshair_Shoot;
-        public InputAction @Refill => m_Wrapper.m_croasshair_Refill;
-        public InputAction @Mousse => m_Wrapper.m_croasshair_Mousse;
-        public InputActionMap Get() { return m_Wrapper.m_croasshair; }
+        public LanceActions(@Controllers wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_lance_Move;
+        public InputAction @Shoot => m_Wrapper.m_lance_Shoot;
+        public InputAction @Refill => m_Wrapper.m_lance_Refill;
+        public InputAction @Mousse => m_Wrapper.m_lance_Mousse;
+        public InputAction @AltF4 => m_Wrapper.m_lance_AltF4;
+        public InputActionMap Get() { return m_Wrapper.m_lance; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(CroasshairActions set) { return set.Get(); }
-        public void SetCallbacks(ICroasshairActions instance)
+        public static implicit operator InputActionMap(LanceActions set) { return set.Get(); }
+        public void SetCallbacks(ILanceActions instance)
         {
-            if (m_Wrapper.m_CroasshairActionsCallbackInterface != null)
+            if (m_Wrapper.m_LanceActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnMove;
-                @Shoot.started -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnShoot;
-                @Shoot.performed -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnShoot;
-                @Shoot.canceled -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnShoot;
-                @Refill.started -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnRefill;
-                @Refill.performed -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnRefill;
-                @Refill.canceled -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnRefill;
-                @Mousse.started -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnMousse;
-                @Mousse.performed -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnMousse;
-                @Mousse.canceled -= m_Wrapper.m_CroasshairActionsCallbackInterface.OnMousse;
+                @Move.started -= m_Wrapper.m_LanceActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_LanceActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_LanceActionsCallbackInterface.OnMove;
+                @Shoot.started -= m_Wrapper.m_LanceActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_LanceActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_LanceActionsCallbackInterface.OnShoot;
+                @Refill.started -= m_Wrapper.m_LanceActionsCallbackInterface.OnRefill;
+                @Refill.performed -= m_Wrapper.m_LanceActionsCallbackInterface.OnRefill;
+                @Refill.canceled -= m_Wrapper.m_LanceActionsCallbackInterface.OnRefill;
+                @Mousse.started -= m_Wrapper.m_LanceActionsCallbackInterface.OnMousse;
+                @Mousse.performed -= m_Wrapper.m_LanceActionsCallbackInterface.OnMousse;
+                @Mousse.canceled -= m_Wrapper.m_LanceActionsCallbackInterface.OnMousse;
+                @AltF4.started -= m_Wrapper.m_LanceActionsCallbackInterface.OnAltF4;
+                @AltF4.performed -= m_Wrapper.m_LanceActionsCallbackInterface.OnAltF4;
+                @AltF4.canceled -= m_Wrapper.m_LanceActionsCallbackInterface.OnAltF4;
             }
-            m_Wrapper.m_CroasshairActionsCallbackInterface = instance;
+            m_Wrapper.m_LanceActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Move.started += instance.OnMove;
@@ -327,15 +353,19 @@ public partial class @Controllers : IInputActionCollection2, IDisposable
                 @Mousse.started += instance.OnMousse;
                 @Mousse.performed += instance.OnMousse;
                 @Mousse.canceled += instance.OnMousse;
+                @AltF4.started += instance.OnAltF4;
+                @AltF4.performed += instance.OnAltF4;
+                @AltF4.canceled += instance.OnAltF4;
             }
         }
     }
-    public CroasshairActions @croasshair => new CroasshairActions(this);
-    public interface ICroasshairActions
+    public LanceActions @lance => new LanceActions(this);
+    public interface ILanceActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnRefill(InputAction.CallbackContext context);
         void OnMousse(InputAction.CallbackContext context);
+        void OnAltF4(InputAction.CallbackContext context);
     }
 }

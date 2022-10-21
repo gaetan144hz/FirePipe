@@ -25,15 +25,31 @@ public class SC_SpawnCat : MonoBehaviour
         {
             listSpawnPoint.Add(true);
         }
-        
-        InvokeRepeating("Spawn01",10 ,repeatRate);
+
+        StartCoroutine(startSpawn());
+        //InvokeRepeating("Spawn01",10 ,repeatRate);
     }
 
     void Update()
     {
-        if (time.sec >= 30)
+        if (time.sec >= 60)
         {
             repeatRate -= decreaseRepeatRate;
+        }
+
+        if (repeatRate <= 0.4f)
+        {
+            repeatRate = 0.5f;
+        }
+    }
+
+    IEnumerator startSpawn()
+    {
+        yield return new WaitForSeconds(30f);
+        while (true)
+        {
+            Spawn01();
+            yield return new WaitForSeconds(repeatRate);
         }
     }
 

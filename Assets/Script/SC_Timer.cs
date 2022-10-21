@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SC_Timer : MonoBehaviour
 {
+    public SC_Score score;
     public float sec;
     public float min;
     public float currentTime;
@@ -20,6 +21,11 @@ public class SC_Timer : MonoBehaviour
     private void Start()
     {
         timeInstantiate();
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void timeInstantiate()
@@ -45,15 +51,14 @@ public class SC_Timer : MonoBehaviour
 
             if (sec <= 9)
             {
-                countdownText[0].text = $"Time {min}min {sec}sec";
+                countdownText[0].text = $"Time: {min}min {sec}sec";
                 countdownText[1].text = $"en {min}min {sec}sec";
             }
             else
             {
-                countdownText[0].text = $"Time {min}min {sec}sec";
+                countdownText[0].text = $"Time: {min}min {sec}sec";
                 countdownText[1].text = $"en {min}min {sec}sec";
             }
-
             yield return new WaitForSeconds(1);
         }
     }
