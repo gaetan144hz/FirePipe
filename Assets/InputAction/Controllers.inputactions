@@ -2,7 +2,7 @@
     "name": "Controllers",
     "maps": [
         {
-            "name": "croasshair",
+            "name": "lance",
             "id": "0ea7d399-e064-46a6-8265-584d1dcdb71f",
             "actions": [
                 {
@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "AltF4",
+                    "type": "Button",
+                    "id": "99cb8ce8-ee53-40fa-be26-aea3e420c741",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -57,7 +66,7 @@
                 {
                     "name": "up",
                     "id": "03fc4a87-5a1e-4cce-b98e-bdd0ac7d8403",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -68,7 +77,7 @@
                 {
                     "name": "down",
                     "id": "cd667e7a-e0c0-46e7-9472-8ce47b3ffe48",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -183,6 +192,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Mousse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6f8f7d46-c17c-43ba-85a4-d56ebc54b27a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AltF4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

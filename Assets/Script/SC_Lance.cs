@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -80,7 +81,7 @@ public class SC_Lance : MonoBehaviour
     {
         if (ctx.performed)
         {
-            moveInput = playerInput.croasshair.Move.ReadValue<Vector2>();
+            moveInput = playerInput.lance.Move.ReadValue<Vector2>();
             rb.velocity = moveInput * currenSpeed;
         }
     }
@@ -123,7 +124,15 @@ public class SC_Lance : MonoBehaviour
     }
 
     #endregion
-    
+
+    public void Quit(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            Application.Quit();
+            Debug.Log("Jeu Quitté");
+        }
+    }
 
     public void Mousse(InputAction.CallbackContext ctx)
     {
@@ -147,5 +156,4 @@ public class SC_Lance : MonoBehaviour
     }
 
     #endregion
-
 }

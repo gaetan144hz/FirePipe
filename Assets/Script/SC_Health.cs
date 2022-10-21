@@ -7,8 +7,7 @@ public class SC_Health : MonoBehaviour
 {
     public int health;
 
-    [Header("GameObject")] 
-    public SC_Timer timer;
+    [Header("GameObject")]
     public GameObject[] hearth;
     public GameObject[] headLight;
     public GameObject gameOverUI;
@@ -16,10 +15,15 @@ public class SC_Health : MonoBehaviour
     [Header("Sprite")]
     public Sprite spriteHead;
     public Sprite spriteBurnHead;
+    
+    [Header("Script")]
+    public SC_Timer timer;
+    public SC_Spawn hommeSpawn;
+    public SC_SpawnCat catSpawn;
 
     void Start()
     {
-        health = 1;
+        health = 3;
         gameOverUI.SetActive(false);
         
         foreach (var light in headLight)
@@ -61,10 +65,19 @@ public class SC_Health : MonoBehaviour
 
             Cursor.visible = true;
             gameOverUI.SetActive(true);
-            Destroy(this.gameObject.GetComponent<SC_Lance>());
-            timer = FindObjectOfType<SC_Timer>();
-            Destroy(timer.GetComponent<SC_Timer>());
+            scriptDestroy();
         }
+    }
+
+    public void scriptDestroy()
+    {
+        Destroy(this.gameObject.GetComponent<SC_Lance>());
+        timer = FindObjectOfType<SC_Timer>();
+        Destroy(timer.GetComponent<SC_Timer>());
+        hommeSpawn = FindObjectOfType<SC_Spawn>();
+        Destroy(hommeSpawn.GetComponent<SC_Spawn>());
+        catSpawn = FindObjectOfType<SC_SpawnCat>();
+        Destroy(catSpawn.GetComponent<SC_SpawnCat  >());
     }
 
     public void manBurn(int burnMan)

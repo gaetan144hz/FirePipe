@@ -35,6 +35,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../Builds/FirePipe\FirePipe.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\Users\g.dumas\Documents\Unity\Builds\FirePipe" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity 2021.3.11f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\Users\g.dumas\Documents\Unity\FirePipe -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -76,7 +84,7 @@
       <workItem from="1666164383154" duration="21111000" />
       <workItem from="1666202307208" duration="11305000" />
       <workItem from="1666254260502" duration="15729000" />
-      <workItem from="1666337028145" duration="7830000" />
+      <workItem from="1666337028145" duration="11020000" />
     </task>
     <servers />
   </component>

@@ -8,5 +8,6 @@ public class SC_Quit : MonoBehaviour
     public void OnApplicationQuit()
     {
         Application.Quit();
+        Debug.Log("Jeu Quitté");
     }
 }
