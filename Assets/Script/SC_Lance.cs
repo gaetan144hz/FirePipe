@@ -141,7 +141,7 @@ public class SC_Lance : MonoBehaviour
             Debug.Log("Mousse");
         }
     }
-
+/*
     #region PlayerInput
 
     private void OnEnable()
@@ -156,4 +156,5 @@ public class SC_Lance : MonoBehaviour
     }
 
     #endregion
+*/
 }
